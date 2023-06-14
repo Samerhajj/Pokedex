@@ -7,7 +7,7 @@
       },
       {
         "src": "app.py",
-        "use": "vercel-python@1.2.0"
+        "use": "@vercel/python"
       }
     ],
     "routes": [
