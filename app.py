@@ -9,11 +9,15 @@ def index():
 
 @app.route('/search')
 def search():
-    pokemon_name = request.args.get('pokemon_name')
+    pokemon_query = request.args.get('pokemon_query')
 
-    if pokemon_name:
-        # Make a request to the Pokédex API
-        api_url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}"
+    if pokemon_query:
+        # Check if the input is numeric, indicating an ID
+        if pokemon_query.isnumeric():
+            api_url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_query}"
+        else:
+            api_url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_query.lower()}"
+        
         response = requests.get(api_url)
 
         if response.status_code == 200:
