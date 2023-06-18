@@ -8,9 +8,9 @@
   <div class="container">
     <h1>Pokédex</h1>
     <form method="GET" action="{{ url_for('search') }}">
-      <input type="text" name="pokemon_name" placeholder="Enter Pokémon name">
-      <button type="submit">Search</button>
-    </form>
+  <input type="text" name="pokemon_query" placeholder="Enter Pokémon name or ID">
+  <button type="submit">Search</button>
+</form>
 
     {% if pokemon %}
       <div class="pokemon-card">
